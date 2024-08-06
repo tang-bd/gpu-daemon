@@ -1,0 +1,13 @@
+[Unit]
+Description=GPU Daemon Util
+After=docker.service
+
+[Service]
+ExecStart=python /home/exx/gpu-daemon/gpu-daemon.py
+ExecStop=killall -9 gpu_burn
+KillMode=control-group
+Restart=always
+RestartSec=2h
+
+[Install]
+WantedBy=multi-user.target
